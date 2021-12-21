@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    
+    @if (@HttpContextAccessor.HttpContext.Session.GetString("UserName") != null)
+    {
+        <p>UserName: @HttpContextAccessor.HttpContext.Session.GetString("UserName").ToString()</p>
+        <p>Id: @HttpContextAccessor.HttpContext.Session.GetString("CurrentUser").ToString()</p>
+        <form asp-controller="Home" asp-action="Logout" method="get">
+            
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" name="name" value="Çıkış" />
+            </div>
+        </form>
+    }
+</div>
