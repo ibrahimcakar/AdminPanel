@@ -134,7 +134,7 @@ namespace AdminPanel.Controllers
 
                     ViewData["MailSenderResult"] = result;
                     return Redirect("~/Home/Login");
-
+                    //deneme
                 }
             }
             return View(model);
