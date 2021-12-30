@@ -11,31 +11,29 @@ namespace AdminPanel.Data.Operations
     {
         public Category CreateCategory(Category category)
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-
-                categoryDbContext.Categories.Add(category);
-                categoryDbContext.SaveChanges();
+                AdminPanelDbContext.Categories.Add(category);
+                AdminPanelDbContext.SaveChanges();
                 return category;
             }
         }
 
         public void DeleteCategory(int id)
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-
                 var deletedCategory = GetCategoryById(id);
-                categoryDbContext.Categories.Remove(deletedCategory);
-                categoryDbContext.SaveChanges();
+                AdminPanelDbContext.Categories.Remove(deletedCategory);
+                AdminPanelDbContext.SaveChanges();
             }
         }
 
         public List<Category> GetAllCategories()
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-                return categoryDbContext.Categories
+                return AdminPanelDbContext.Categories
                        .Include(b => b.ParentCategory)
                        .ToList();
             }
@@ -43,34 +41,34 @@ namespace AdminPanel.Data.Operations
 
         public Category GetCategoryById(int id)
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-                return categoryDbContext.Categories.Find(id);
+                return AdminPanelDbContext.Categories.Find(id);
             }
         }
 
         public Category UpdateCategory(Category category)
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-                categoryDbContext.Categories.Update(category);
+                AdminPanelDbContext.Categories.Update(category);
                 return category;
             }
         }
 
         public List<Category> GetCategoriesByParentCategoryId()
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-                return categoryDbContext.Categories.Include(b => b.ParentCategory).ToList();
+                return AdminPanelDbContext.Categories.Include(b => b.ParentCategory).ToList();
             }
         }
 
         public List<Category> GetCategoriesByChildCategoryId()
         {
-            using (var categoryDbContext = new AdminPanelDb())
+            using (var AdminPanelDbContext = new AdminPanelDb())
             {
-                return categoryDbContext.Categories.Where(x => x.ParentCategoryId != null).ToList();
+                return AdminPanelDbContext.Categories.Where(x => x.ParentCategoryId != null).ToList();
             }
         }
     }

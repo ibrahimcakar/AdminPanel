@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using Cogito.Services.Models;
+using AdminPanel.Service.Models;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 

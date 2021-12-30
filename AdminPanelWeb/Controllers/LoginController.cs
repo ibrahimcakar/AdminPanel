@@ -6,20 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Login.API.Controllers
+namespace AdminPanelWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : Controller
     {
-        private  IUserOperation _users;  
+        private  IUserOperation _users;
         public LoginController(IUserOperation repository)
         {
             _users = repository;
         }
 
         [HttpGet]
-        [Route("[action]/")]
+        [Route("[action]/(id)")]
         public IActionResult GetUserById(int id)
         {
             var user = _users.GetUserById(id);
@@ -29,14 +29,6 @@ namespace Login.API.Controllers
             }
             return NotFound();
         }
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var list = _users.GetAllUser();
-            return Ok(list);
-        }
-
         [HttpPost]
         [Route("[action]")]
         public IActionResult GetLogin(User model)
@@ -60,6 +52,12 @@ namespace Login.API.Controllers
                 return Forbid();
             }
 
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var list = _users.GetAllUser();
+            return Ok(list);
         }
 
         [HttpPost]

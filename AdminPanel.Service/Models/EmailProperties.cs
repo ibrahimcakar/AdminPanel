@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cogito.Services.Models
+namespace AdminPanel.Service.Models
 {
     public class EmailProperties
     {

@@ -9,6 +9,7 @@ namespace AdminPanel.Data.Operations
     {
         List<User> GetAllUser();
         User GetUserByUsernamePassword(User entity);
+        User GetUserByMailPassword(User entity);
         User GetUserById(int id);
         User CreateUser(User user);
         User UpdateUser(User user);

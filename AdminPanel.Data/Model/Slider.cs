@@ -4,7 +4,9 @@ using System.Text;
 
 namespace AdminPanel.Data.Model
 {
-    class Slider
+    public class Slider
     {
+        public int Id { get; set; }
+        public string   ImagePath { get; set; }
     }
 }

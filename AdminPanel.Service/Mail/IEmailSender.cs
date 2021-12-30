@@ -1,4 +1,4 @@
-﻿using Cogito.Services.Models;
+﻿using AdminPanel.Service.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

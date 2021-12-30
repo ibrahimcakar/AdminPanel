@@ -4,14 +4,16 @@ using AdminPanel.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdminPanel.Data.Migrations
 {
     [DbContext(typeof(AdminPanelDb))]
-    partial class AdminPanelDbModelSnapshot : ModelSnapshot
+    [Migration("20211226133617_new")]
+    partial class @new
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +34,6 @@ namespace AdminPanel.Data.Migrations
                     b.Property<string>("CarsImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Doors")
                         .HasColumnType("int");
 
@@ -43,9 +42,6 @@ namespace AdminPanel.Data.Migrations
 
                     b.Property<string>("Gear")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Luggage")
-                        .HasColumnType("int");
 
                     b.Property<string>("Modal")
                         .HasColumnType("nvarchar(max)");
@@ -99,6 +95,7 @@ namespace AdminPanel.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -112,6 +109,7 @@ namespace AdminPanel.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

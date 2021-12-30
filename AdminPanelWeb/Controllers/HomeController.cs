@@ -1,10 +1,10 @@
 ﻿using AdminPanel.Data.Model;
 using AdminPanel.Data.Operations;
+using AdminPanel.Service.Models;
 using AdminPanel.Services.Infrastructure;
 using AdminPanel.Services.Mail;
 using AdminPanelWeb.Models;
 using AutoMapper;
-using Cogito.Services.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

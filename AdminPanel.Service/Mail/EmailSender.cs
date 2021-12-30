@@ -1,4 +1,4 @@
-﻿using Cogito.Services.Models;
+﻿using AdminPanel.Service.Models;
 using MimeKit;
 using MimeKit.Text;
 using System;

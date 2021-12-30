@@ -1,4 +1,4 @@
-﻿namespace Cogito.Services.Models
+﻿namespace AdminPanel.Service.Models
 {
     public enum SendResultStatus
     {

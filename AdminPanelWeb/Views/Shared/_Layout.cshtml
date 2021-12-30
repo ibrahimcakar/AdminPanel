@@ -14,7 +14,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Yönetici Paneli | Cogito Park & Co</title>
+    <title>Yönetici Paneli | CK-Rent</title>
     <meta name="description" content="Page with empty content" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -58,7 +58,7 @@
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 
         <a href="index.html">
-            <img src="~/media/logos/LOGOLAR/Üst Yazı Beyaz Arkaplan yok/cogito logolar-01.png" style="height:45px; width:150px;" />
+            <img src="~/media/logos/CKRENT.png" style="height:45px; width:150px;" />
         </a>
 
         <div class="d-flex align-items-center">
@@ -96,7 +96,7 @@
 
                     <a href="/Home/Index" class="brand-logo">
 
-                        <img src="~/media/logos/LOGOLAR/Üst Yazı Beyaz Arkaplan yok/cogito logolar-01.png" style="height:45px; width:150px;" />
+                        <img src="~/media/logos/CKRENT.png" style="height:45px; width:150px;" />
                     </a>
 
                     <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
@@ -132,7 +132,13 @@
                                     <span class="menu-text">Users</span>
                                     <i class="menu-arrow"></i>
                                 </a>
-
+                            </li>   
+                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="/Car/List" class="menu-link menu-toggle">
+                                    <i class="menu-icon flaticon-web"></i>
+                                    <span class="menu-text">Cars</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
                             </li>
                 
                         </ul>
@@ -177,14 +183,7 @@
 
                     @RenderBody()
                 </div>
-                @*<div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
-                        <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-                            <div class="text-dark order-2 order-md-1">
-                                <span class="text-muted font-weight-bold mr-2">@(DateTime.Now.Year.ToString()) © Copyleft</span>
-                                <a href="https://www.cogitoparkco.com" target="_blank" class="text-dark-75 text-hover-primary">Cogito Park & Co</a>
-                            </div>
-                        </div>
-                    </div>*@
+                
             </div>
         </div>
     </div>

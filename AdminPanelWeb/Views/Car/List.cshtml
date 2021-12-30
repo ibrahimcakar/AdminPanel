@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Layout";
+
+}
+@model List<Cars>
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <a href="/Car/Create" class="btn btn-primary" style="float: right;">Ekle</a>
+        </div>
+    </div>
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row form-group">
+                    <table class="table table-bordered table-checkable" id="kt_datatable">
+                        <thead>
+                            <tr class="datatable-row">
+                                <th>Id</th>
+                                <th>Araba İsmi</th>
+                                <th>Resim Yolu</th>
+                                <th>Markası</th>
+                                <th>Modeli</th>
+                                <th>Vites Tipi</th>
+                                <th>Kategori</th>
+                                <th>Yakıt Tipi</th>
+                                <th>Kiralama Ücreti</th>
+                                <th>Kişi</th>
+                                <th>Kapı Sayısı</th>
+                                <th>Bagaj</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model != null && Model.Count > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.CarsImagePath</td>
+                                            <td>@item.Brand</td>
+                                            <td>@item.Modal</td>
+                                            <td>@item.Gear</td>
+                                            <td>@item.Category</td>
+                                            <td>@item.Fuel</td>
+                                            <td>@item.RentFee</td>
+                                            <td>@item.People</td>
+                                            <td>@item.Doors</td>
+                                            <td>@item.Luggage</td>
+
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

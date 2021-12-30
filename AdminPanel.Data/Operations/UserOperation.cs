@@ -56,6 +56,13 @@ namespace AdminPanel.Data.Operations
             {
                 return userDbContext.Users.FirstOrDefault(x => x.UserName == entity.UserName && x.Password == entity.Password);
             }
+        }     
+        public User GetUserByMailPassword(User entity)
+        {
+            using (var userDbContext = new AdminPanelDb())
+            {
+                return userDbContext.Users.FirstOrDefault(x => x.Email == entity.Email && x.Password == entity.Password);
+            }
         }
 
   
