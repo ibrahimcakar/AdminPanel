@@ -59,6 +59,26 @@ namespace AdminPanelWeb.Controllers
             }
             return View(model);
         }
+        [HttpGet("Car/Update/{id:int}")]
+        public IActionResult Update(int id)
+        {
+            Cars model = new Cars();
+            var cars = _carOperation.GetAllCars().Where(x => x.Id == id).FirstOrDefault();
+            return View(cars);
+        }
+        [HttpPost]
+        public IActionResult Update(Cars model)
+        {
+            if (ModelState.IsValid)
+            {
+                model = _carOperation.UpdateCars(model);
+                if (model != null && model.Id > 0)
+                {
+                    return RedirectToAction("List");
+                }
+            }
+            return View(model);
+        }
 
     }
 }

@@ -132,6 +132,30 @@ namespace AdminPanelWeb.Controllers
             return View(modelDTO);
 
         }
+        [HttpGet("User/Update/{id:int}")]
+        public IActionResult Update(int id)
+        {
+            UserDTO modelDTO = new UserDTO();
+
+            var userup = _userOperation.GetAllUser().Where(x => x.Id == id).FirstOrDefault();
+            modelDTO = _mapper.Map<UserDTO>(userup);
+
+            return View(modelDTO);
+        }
+        [HttpPost]
+        public IActionResult Update(UserDTO modelDTO)
+        {
+            var model = _mapper.Map<User>(modelDTO);
+            if (ModelState.IsValid)
+            {
+                 model = _userOperation.UpdateUser(model);
+                if (model != null && model.Id > 0)
+                {
+                    return RedirectToAction("List");
+                }
+            }
+            return View(modelDTO);
+        }
 
     }
 }

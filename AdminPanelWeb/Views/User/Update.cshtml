@@ -1,1 +1,64 @@
-﻿
+﻿@model UserDTO
+
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="font-weight-bolder mr-2">Yönetim Paneli</h5>
+            <h5 class="font-weight-bolder mr-2">-</h5>
+            <h5 class="font-weight-bolder mr-2">Kullanıcı Düzenleme </h5>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form asp-controller="User" asp-action="Update" method="post">
+                    <div class="card-body">
+                        <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+                        <input type="hidden" id="Password" name="Password" value="@Model.Password" />
+                        <input type="hidden" id="IsActive" name="IsActive" value="@Model.IsActive.ToString()" />
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label class="control-label">Ad Soyad</label>
+                                <input class="form-control" asp-for="FullName" value="@Model.FullName" required />
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label class="control-label">Kullanıcı Adı</label>
+                                <input class="form-control" asp-for="UserName" value="@Model.UserName" required />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label class="control-label">Email Adresi</label>
+                                <input class="form-control" asp-for="Email" value="@Model.Email" required />
+                            </div>
+                            <div class="col-md-3 ">
+                                <label>Yetkili mi?</label>
+                                <div class="checkbox">
+                                    <label class="control-label ">
+                                        <input style="width: 20px; height: 20px;" class="ml-5 mt-3" asp-for="IsAdmin" value="@Model.IsAdmin" />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-primary" value="Güncelle" style="float: right;" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
