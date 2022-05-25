@@ -1,4 +1,5 @@
-﻿using AdminPanel.Data.Model;
+﻿using AdminPanel.Data;
+using AdminPanel.Data.Model;
 using AdminPanel.Data.Operations;
 using AdminPanel.Service.Models;
 using AdminPanel.Services.Infrastructure;
@@ -38,6 +39,9 @@ namespace AdminPanel.Controllers
         {
             if (HttpContext.Session.GetString("CurrentUser") == null)
             {
+                //var userDbContext = new AdminPanelDb();
+                //var statsModel = new ViewModelss();
+                //statsModel.TotalAmount=userDbContext.Users.
                 return Redirect("~/Home/Login");
             }
             return View();

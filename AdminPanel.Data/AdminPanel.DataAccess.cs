@@ -15,6 +15,8 @@ namespace AdminPanel.Data
             optionsBuilder.UseSqlServer("Server=18.158.1.38,1433;Database=AdminPanel;User Id=sa;Password=Ckrent123;");
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Adress> Adresses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Cars> Cars { get; set; }
 

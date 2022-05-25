@@ -1,5 +1,6 @@
 ﻿using AdminPanel.Data.Model;
 using AdminPanel.Data.Operations;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -62,5 +63,70 @@ namespace AdminPanelWeb.Controllers
             }
             return NotFound();
         }
+        public IActionResult Index()
+        {
+            if (HttpContext.Session.GetString("CurrentUser") == null)
+            {
+                return Redirect("~/Home/Login");
+            }
+            return RedirectToAction("List");
+        }
+        public IActionResult List()
+        {
+            if (HttpContext.Session.GetString("CurrentUser") != null)
+            {
+                var list = _categoryOperation.GetAllCategories();
+                return View(list);
+            }
+            return Redirect("~/Home/Login");
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+
+            if (HttpContext.Session.GetString("CurrentUser") != null)
+            {
+                Category model = new Category();
+                return View(model);
+            }
+
+            return Redirect("~/Home/Login");
+
+
+        }
+        [HttpPost]
+        public IActionResult Create(Category model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (HttpContext.Session.GetString("CurrentUser") != null)
+                {
+                    model = _categoryOperation.CreateCategory(model);
+                    return RedirectToAction("List");
+                }
+            }
+            return View(model);
+        }
+         [HttpGet("Category/Update/{id:int}")]
+        public IActionResult Update(int id)
+        {
+            Adress model = new Adress();
+            var adress = _categoryOperation.GetAllCategories().Where(x => x.Id == id).FirstOrDefault();
+            return View(adress);
+        }
+        [HttpPost]
+        public IActionResult Update(Category model)
+        {
+            if (ModelState.IsValid)
+            {
+                model = _categoryOperation.UpdateCategory(model);
+                if (model != null && model.Id > 0)
+                {
+                    return RedirectToAction("List");
+                }
+            }
+            return View(model);
+        }
+
     }
 }

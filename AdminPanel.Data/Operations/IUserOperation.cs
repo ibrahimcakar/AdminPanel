@@ -15,5 +15,6 @@ namespace AdminPanel.Data.Operations
         User UpdateUser(User user);
         void DeleteUser(int id);
         User GetMail(User user);
+        List<User> TotalUser();
     }
 }

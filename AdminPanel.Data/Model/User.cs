@@ -17,6 +17,7 @@ namespace AdminPanel.Data.Model
         public string Email { get; set; }
         public bool IsActive { get; set; }
         public bool IsAdmin { get; set; }
+        //public bool IsOkey { get; set; }
 
     }
 }

@@ -37,6 +37,8 @@
                                                 <td>@item.FullName</td>
                                                 <td>@item.Email</td>
                                                 <td>@item.UserName</td>
+                                                <td>@item.IsAdmin</td>
+
                                                 @if (item.IsActive)
                                                 {
                                                     <td><a onclick="return ActiveConfirm()" class="btn" asp-route-id="@item.Id" style="padding-top:0px;" asp-action="Delete"><i class="fas fa-toggle-on fa-2x" style="color:lawngreen;"></i></a></td>

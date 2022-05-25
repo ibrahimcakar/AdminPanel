@@ -1,20 +1,35 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @inject IHttpContextAccessor HttpContextAccessor
+@model UserDTO
 @{
     Layout = "_Layout";
 }
 
 <div class="text-center">
-    
+
     @if (@HttpContextAccessor.HttpContext.Session.GetString("UserName") != null)
     {
         <p>UserName: @HttpContextAccessor.HttpContext.Session.GetString("UserName").ToString()</p>
         <p>Id: @HttpContextAccessor.HttpContext.Session.GetString("CurrentUser").ToString()</p>
         <form asp-controller="Home" asp-action="Logout" method="get">
-            
+
             <div class="form-group">
                 <input type="submit" class="btn btn-danger" name="name" value="Çıkış" />
             </div>
         </form>
     }
+</div>
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="row text-center">
+          @*  @if (Model.Id != null)
+            {
+                if (Model.Id.Count > 0)
+                {
+                    <span class="right-plus main-plus"><i class="fa fa-plus-square-o"></i></span>
+                }
+            }*@
+          
+        </div>
+        </div>
 </div>

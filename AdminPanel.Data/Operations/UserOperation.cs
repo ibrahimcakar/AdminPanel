@@ -74,5 +74,15 @@ namespace AdminPanel.Data.Operations
                 return user;
             }
         }
+        public  List<User> TotalUser()
+        {
+            using (var userDbContext = new AdminPanelDb())
+            {
+                List<User> list = userDbContext.Users
+                     .OrderByDescending(x => x.UserName.Count()).ToList();
+                    
+                return list;
+            }
+        }
     }
 }
